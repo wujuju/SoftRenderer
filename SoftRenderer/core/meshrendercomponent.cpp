@@ -6,7 +6,6 @@
 void MeshRenderComponent::Start()
 {
     auto model = &gameObject->GetComponent<Model>();
-
     mesh.material = new Material();
     mesh.material->shader = new NormalShader();
     // mesh.material->shader = new NormalShader();

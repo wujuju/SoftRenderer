@@ -27,6 +27,25 @@ public:
         this->clear_depth(std::numeric_limits<float>::max());
     }
 
+    ~FrameBuff()
+    {
+        if (depth_buffer)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (depth_buffer[j]) delete []depth_buffer[j];
+                depth_buffer[j] = nullptr;
+            }
+            delete []depth_buffer;
+            depth_buffer = nullptr;
+        }
+        if (color_buffer)
+        {
+            delete color_buffer;
+            color_buffer = nullptr;
+        }
+    }
+
     inline void set_depth(Vector2i& p, float depth)
     {
         if (p.x < 0 || p.x >= width || p.y < 0 || p.y >= height)

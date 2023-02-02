@@ -6,11 +6,7 @@
 #include "light.h"
 
 extern Coordinator gCoordinator;
-GlobalShaderData* gl;
-int _min_x; // 三角形外接矩形
-int _min_y;
-int _max_x;
-int _max_y;
+
 
 inline bool is_back_facing(shader_struct_v2f* v2f)
 {
@@ -30,6 +26,7 @@ void RenderSystem::Init()
     gl = new GlobalShaderData();
     gl->targetBuffer = frame_buff;
 }
+
 
 void RenderSystem::Update(float dt)
 {
